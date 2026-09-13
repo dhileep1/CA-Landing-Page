@@ -8,10 +8,10 @@ const CA_CONFIG = {
   WEB3FORMS_ACCESS_KEY: '8c7f11ee-5e34-45bf-b258-1b8080f1c336',
   
   // Practice WhatsApp Number (Country code without + or spaces)
-  WHATSAPP_NUMBER: '916369764886',
+  WHATSAPP_NUMBER: '919894938889',
   
   // Practice Support Email
-  FIRM_EMAIL: 'dhileepansb@gmail.com'
+  FIRM_EMAIL: 'cackathirvel@gmail.com'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
