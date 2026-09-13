@@ -1240,28 +1240,44 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (TABLETS & SMARTPHONES)
    ========================================================================== */
 
+/* Tablets & Small Laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hero-grid, .detail-grid, .booking-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.25rem;
   }
   
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
   .dropdown-menu {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   .top-bar {
     display: none;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+  
+  .brand-logo img {
+    height: 34px;
   }
 
   .nav-menu {
@@ -1274,18 +1290,42 @@ button, input, select, textarea {
     background-color: #FFFFFF;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-lg);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-xl);
     clip-path: circle(0% at 100% 0);
-    transition: clip-path 0.4s ease-in-out;
+    transition: clip-path 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
   }
 
   .nav-menu.active {
     clip-path: circle(140% at 100% 0);
   }
 
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid var(--neutral-300);
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.85rem 0;
+    font-size: 1.05rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .mobile-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    background-color: var(--neutral-200);
+    color: var(--primary-navy);
+    border: none;
+    cursor: pointer;
   }
 
   .dropdown-menu {
@@ -1299,6 +1339,9 @@ button, input, select, textarea {
     opacity: 1;
     visibility: visible;
     transform: none;
+    background-color: #F8FAFC;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.75rem;
   }
 
   .nav-item.open .dropdown-menu {
@@ -1306,12 +1349,115 @@ button, input, select, textarea {
     flex-direction: column;
   }
 
+  /* Hero Section on Mobile */
+  .hero-section {
+    padding: 2rem 0 2.5rem 0;
+    text-align: center;
+  }
+
+  .hero-pill {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content div[style*="flex"] {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .whatsapp-float {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .whatsapp-btn {
+    width: 52px;
+    height: 52px;
   }
 
   .whatsapp-tooltip {
     display: none;
+  }
+
+  .toast-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+
+  .toast {
+    width: 100%;
+  }
+}
+
+/* Small Smartphone Screen (max-width: 600px) */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  /* Stack Form Grids Vertically on Phones for Easy Tapping */
+  form div[style*="grid-template-columns"],
+  .booking-form div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .booking-card {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  .form-input, select.form-input, textarea.form-input {
+    font-size: 16px !important; /* Prevents auto-zoom on mobile Safari */
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-actions .btn {
+    display: none; /* Hide top header button on tiny screens to avoid overflow */
   }
 }
 
@@ -1372,5 +1518,6 @@ button, input, select, textarea {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
 }
+
 
 
