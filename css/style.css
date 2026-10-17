@@ -1177,6 +1177,11 @@ button, input, select, textarea {
   position: relative;
   width: 100%;
   cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.date-input-wrap:hover {
+  transform: translateY(-1px);
 }
 
 .date-input-wrap .form-input,
@@ -1185,6 +1190,12 @@ button, input, select, textarea {
   cursor: pointer !important;
   background-color: #FFFFFF !important;
   padding-right: 2.25rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.date-input-wrap:hover .form-input,
+.date-input-wrap:hover input.flatpickr-input {
+  border-color: var(--primary-navy);
 }
 
 .date-input-icon {
@@ -1194,29 +1205,43 @@ button, input, select, textarea {
   transform: translateY(-50%);
   color: var(--primary-navy);
   pointer-events: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.date-input-wrap:hover .date-input-icon {
+  transform: translateY(-50%) scale(1.1);
+  color: var(--accent-green);
 }
 
 .flatpickr-calendar {
-  width: 250px !important;
+  width: 280px !important;
   border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow-xl) !important;
+  box-shadow: 0 12px 30px rgba(11, 70, 109, 0.22) !important;
   border: 1px solid var(--neutral-400) !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: 0.8rem !important;
-  z-index: 9999 !important;
+  font-size: 0.85rem !important;
+  z-index: 99999 !important;
+  animation: fpFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes fpFadeIn {
+  from { opacity: 0; transform: scale(0.97) translateY(-4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .flatpickr-rContainer, .flatpickr-days, .dayContainer {
-  width: 250px !important;
-  min-width: 250px !important;
-  max-width: 250px !important;
+  width: 280px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
 }
 
 .flatpickr-day {
-  max-width: 32px !important;
-  height: 30px !important;
-  line-height: 30px !important;
-  font-size: 0.78rem !important;
+  max-width: 36px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  font-size: 0.825rem !important;
+  border-radius: 8px !important;
+  transition: all 0.12s ease !important;
 }
 
 .flatpickr-months {

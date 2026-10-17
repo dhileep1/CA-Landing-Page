@@ -55,32 +55,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Modern Flatpickr Calendar & Click-Anywhere Date Picker Setup
-  const dateInputs = document.querySelectorAll('input[type="date"], .date-picker');
-  const todayStr = new Date().toISOString().split('T')[0];
+  const dateTarget = document.querySelector('#contact-date, .date-picker');
   
-  dateInputs.forEach(input => {
-    input.min = todayStr;
+  if (dateTarget) {
+    if (typeof flatpickr !== 'undefined') {
+      const fp = flatpickr(dateTarget, {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        altInput: true,
+        altFormat: 'F j, Y',
+        altInputClass: 'form-input date-picker',
+        allowInput: false,
+        clickOpens: true,
+        disableMobile: "true", // ensures premium custom UI is rendered reliably across devices
+        static: false
+      });
 
-    // Trigger calendar picker on click anywhere inside the wrapper/input
-    const wrap = input.closest('.date-input-wrap') || input;
-    wrap.addEventListener('click', (e) => {
-      if (input._flatpickr) {
-        input._flatpickr.open();
-      } else if (typeof input.showPicker === 'function') {
-        try { input.showPicker(); } catch (err) { input.focus(); }
+      // Allow clicking anywhere on the parent wrapper or calendar icon to open immediately
+      const wrap = dateTarget.closest('.date-input-wrap');
+      if (wrap) {
+        wrap.addEventListener('click', () => {
+          fp.open();
+        });
       }
-    });
-  });
-
-  if (typeof flatpickr !== 'undefined') {
-    flatpickr('input[type="date"], .date-picker', {
-      minDate: 'today',
-      dateFormat: 'Y-m-d',
-      altInput: true,
-      altFormat: 'F j, Y', // e.g. September 20, 2026
-      allowInput: false,
-      clickOpens: true
-    });
+    } else {
+      // Fallback for native date input if CDN fails to load
+      const todayStr = new Date().toISOString().split('T')[0];
+      dateTarget.min = todayStr;
+      dateTarget.addEventListener('click', () => {
+        if (typeof dateTarget.showPicker === 'function') {
+          try { dateTarget.showPicker(); } catch (err) { dateTarget.focus(); }
+        }
+      });
+    }
   }
 
   // Interactive Time Slot Chip Selector
