@@ -1172,6 +1172,171 @@ button, input, select, textarea {
   box-shadow: 0 0 0 3px rgba(11, 70, 109, 0.15);
 }
 
+/* Custom Flatpickr & Date Input Styling */
+.date-input-wrap {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.date-input-wrap .form-input,
+.date-input-wrap input.flatpickr-input {
+  width: 100%;
+  cursor: pointer !important;
+  background-color: #FFFFFF !important;
+  padding-right: 2.25rem !important;
+}
+
+.date-input-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-navy);
+  pointer-events: none;
+}
+
+.flatpickr-calendar {
+  width: 250px !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-xl) !important;
+  border: 1px solid var(--neutral-400) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.8rem !important;
+  z-index: 9999 !important;
+}
+
+.flatpickr-rContainer, .flatpickr-days, .dayContainer {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
+
+.flatpickr-day {
+  max-width: 32px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  font-size: 0.78rem !important;
+}
+
+.flatpickr-months {
+  padding: 0.2rem 0.4rem !important;
+  background-color: var(--primary-navy-dark) !important;
+  color: #FFFFFF !important;
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  height: 36px !important;
+}
+
+.flatpickr-months .flatpickr-month {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+  height: 32px !important;
+}
+
+.flatpickr-current-month {
+  padding: 0.2rem 0 0 0 !important;
+  font-size: 0.85rem !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  color: #FFFFFF !important;
+  background-color: var(--primary-navy-dark) !important;
+  font-size: 0.825rem !important;
+}
+
+.flatpickr-current-month input.cur-year {
+  color: #FFFFFF !important;
+  font-size: 0.825rem !important;
+}
+
+.flatpickr-months .flatpickr-prev-month, 
+.flatpickr-months .flatpickr-next-month {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+  padding: 6px !important;
+  height: 32px !important;
+}
+
+.flatpickr-weekday {
+  font-size: 0.725rem !important;
+  font-weight: 600 !important;
+  color: var(--neutral-600) !important;
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange, 
+.flatpickr-day.selected:focus, 
+.flatpickr-day.selected:hover {
+  background: var(--accent-green) !important;
+  border-color: var(--accent-green) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.flatpickr-day.today {
+  border-color: var(--primary-navy) !important;
+  color: var(--primary-navy) !important;
+  font-weight: 700 !important;
+}
+
+.flatpickr-day:hover {
+  background: var(--primary-navy-subtle) !important;
+}
+
+/* Minimalist Time Slot Picker Grid */
+.slot-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.slot-chip {
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--neutral-400);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  user-select: none;
+}
+
+.slot-chip:hover {
+  border-color: var(--primary-navy);
+  background-color: var(--primary-navy-subtle);
+}
+
+.slot-chip.active {
+  background-color: var(--primary-navy-subtle);
+  border-color: var(--accent-green-dark);
+  box-shadow: 0 0 0 2px rgba(124, 179, 66, 0.35);
+}
+
+.slot-chip .slot-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  align-items: center;
+}
+
+.slot-chip .slot-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-navy-dark);
+}
+
+.slot-chip .slot-time {
+  font-size: 0.675rem;
+  color: var(--neutral-600);
+}
+
 /* Footer */
 .site-footer {
   background-color: var(--primary-navy-dark);
