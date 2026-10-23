@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -112,7 +112,9 @@
       <div class="nav-actions">
         <a href="contact.html" class="btn btn-primary btn-sm">Book Consultation</a>
         <button class="mobile-toggle" aria-label="Toggle menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
         </button>
       </div>
     </div>
@@ -238,39 +240,60 @@
   </section>
 
   <!-- WHY CHOOSE US -->
-  <section class="section section-bg-light">
+  <section class="section section-bg-light" id="enterprise-excellence">
     <div class="container">
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4rem; align-items:center;">
-        <div>
-          <img src="assets/team.png" alt="CA partner consultation" style="border-radius:16px; box-shadow:var(--shadow-xl);">
+      <div class="enterprise-grid">
+        <div class="enterprise-media">
+          <div class="enterprise-img-wrapper">
+            <picture>
+              <source srcset="assets/team.webp" type="image/webp">
+              <img src="assets/team.png" alt="Chartered Accountant partner consultation" class="enterprise-img" width="600" height="600" loading="lazy" decoding="async">
+            </picture>
+            <div class="enterprise-badge">
+              <div class="enterprise-badge-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="enterprise-badge-text">
+                <div class="enterprise-badge-title">Direct Partner Access</div>
+                <div class="enterprise-badge-sub">ICAI Certified Rigor</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
+
+        <div class="enterprise-content">
           <span class="section-tag">Enterprise Excellence</span>
-        <h2 class="section-title">Why Leading Enterprises Partner With Kathirvel Associates</h2>
-          <p style="color:var(--neutral-600); margin-bottom:2rem;">We combine institutional rigor with personal attention to deliver transparent, high-impact financial guidance.</p>
+          <h2 class="section-title">Why Leading Enterprises Partner With Kathirvel Associates</h2>
+          <p class="enterprise-desc">We combine institutional rigor with personal attention to deliver transparent, high-impact financial guidance.</p>
           
-          <div style="display:flex; flex-direction:column; gap:1.25rem;">
-            <div style="display:flex; gap:1rem;">
-              <div style="width:40px; height:40px; border-radius:8px; background-color:var(--accent-green-subtle); color:var(--accent-green-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0;">✓</div>
-              <div>
-                <h4 style="font-size:1.05rem; color:var(--primary-navy-dark);">ICAI Certified Standards</h4>
-                <p style="font-size:0.9rem; color:var(--neutral-600);">Adherence to technical auditing guidelines and ethical practices.</p>
+          <div class="enterprise-features">
+            <div class="enterprise-feature-item">
+              <div class="enterprise-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="enterprise-feature-info">
+                <h4 class="enterprise-feature-title">ICAI Certified Standards</h4>
+                <p class="enterprise-feature-desc">Adherence to technical auditing guidelines and ethical practices.</p>
               </div>
             </div>
 
-            <div style="display:flex; gap:1rem;">
-              <div style="width:40px; height:40px; border-radius:8px; background-color:var(--accent-green-subtle); color:var(--accent-green-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0;">🔒</div>
-              <div>
-                <h4 style="font-size:1.05rem; color:var(--primary-navy-dark);">Data Security & Encryption</h4>
-                <p style="font-size:0.9rem; color:var(--neutral-600);">Strict non-disclosure policy and 256-bit encrypted data handling.</p>
+            <div class="enterprise-feature-item">
+              <div class="enterprise-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <div class="enterprise-feature-info">
+                <h4 class="enterprise-feature-title">Data Security & Encryption</h4>
+                <p class="enterprise-feature-desc">Strict non-disclosure policy and 256-bit encrypted data handling.</p>
               </div>
             </div>
 
-            <div style="display:flex; gap:1rem;">
-              <div style="width:40px; height:40px; border-radius:8px; background-color:var(--accent-green-subtle); color:var(--accent-green-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0;">👤</div>
-              <div>
-                <h4 style="font-size:1.05rem; color:var(--primary-navy-dark);">Direct Partner Engagement</h4>
-                <p style="font-size:0.9rem; color:var(--neutral-600);">Every assignment is spearheaded by a senior Chartered Accountant partner.</p>
+            <div class="enterprise-feature-item">
+              <div class="enterprise-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <div class="enterprise-feature-info">
+                <h4 class="enterprise-feature-title">Direct Partner Engagement</h4>
+                <p class="enterprise-feature-desc">Every assignment is spearheaded by a senior Chartered Accountant partner.</p>
               </div>
             </div>
           </div>

@@ -357,14 +357,7 @@ button, input, select, textarea {
   gap: 1rem;
 }
 
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--primary-navy);
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+
 
 /* ==========================================================================
    BUTTONS & BADGES SYSTEM
@@ -806,6 +799,177 @@ button, input, select, textarea {
   color: var(--neutral-700);
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-pill);
+}
+
+/* ==========================================================================
+   ENTERPRISE EXCELLENCE / FEATURE SHOWCASE COMPONENT
+   ========================================================================== */
+
+.enterprise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.enterprise-media {
+  position: relative;
+  width: 100%;
+}
+
+.enterprise-img-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  background-color: var(--neutral-300);
+}
+
+.enterprise-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.enterprise-img-wrapper:hover .enterprise-img {
+  transform: scale(1.02);
+}
+
+/* Floating Trust Badge */
+.enterprise-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 12px 30px rgba(7, 44, 70, 0.16);
+  max-width: calc(100% - 3rem);
+  z-index: 2;
+}
+
+.enterprise-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--accent-green-subtle);
+  color: var(--accent-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.enterprise-badge-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-navy-dark);
+  line-height: 1.2;
+}
+
+.enterprise-badge-sub {
+  font-size: 0.8rem;
+  color: var(--neutral-600);
+}
+
+/* Content block */
+.enterprise-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.enterprise-desc {
+  color: var(--neutral-600);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.enterprise-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.enterprise-feature-item {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  transition: all var(--transition-fast);
+}
+
+.enterprise-feature-item:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
+}
+
+.enterprise-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: var(--accent-green-subtle);
+  color: var(--accent-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(124, 179, 66, 0.18);
+}
+
+.enterprise-feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-navy-dark);
+  margin-bottom: 0.25rem;
+}
+
+.enterprise-feature-desc {
+  font-size: 0.9rem;
+  color: var(--neutral-600);
+  line-height: 1.5;
+}
+
+/* About Page Profile Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.profile-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.profile-img-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.profile-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
 }
 
 /* Service Detail Page Layouts */
@@ -1441,15 +1605,71 @@ button, input, select, textarea {
 
 /* ==========================================================================
    RESPONSIVE DESIGN (TABLETS & SMARTPHONES)
+   Comprehensive mobile-first optimization for all screen sizes.
    ========================================================================== */
 
-/* Tablets & Small Laptops (max-width: 1024px) */
+/* Body scroll lock when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  touch-action: none;
+}
+
+/* Animated Hamburger → X Icon (mobile toggle) */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--neutral-200);
+  color: var(--primary-navy);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-toggle .hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--primary-navy);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+}
+
+.mobile-toggle .hamburger-line:nth-child(1) { transform: translateY(-6px); }
+.mobile-toggle .hamburger-line:nth-child(2) { transform: translateY(0); }
+.mobile-toggle .hamburger-line:nth-child(3) { transform: translateY(6px); }
+
+.mobile-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+.mobile-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.mobile-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* ================================================================
+   TABLETS & SMALL LAPTOPS (max-width: 1024px)
+   ================================================================ */
 @media (max-width: 1024px) {
   .hero-grid, .detail-grid, .booking-grid {
     grid-template-columns: 1fr;
     gap: 2.25rem;
   }
-  
+
+  .sidebar-card {
+    position: static;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -1464,41 +1684,95 @@ button, input, select, textarea {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .enterprise-grid,
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .enterprise-media,
+  .profile-img-wrapper {
+    max-width: 620px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .enterprise-img,
+  .profile-img {
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+    object-position: center 25%;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Mobile Devices (max-width: 768px) */
+/* ================================================================
+   MOBILE DEVICES (max-width: 768px)
+   ================================================================ */
 @media (max-width: 768px) {
+
+  /* --- Utility Bar: hidden on mobile --- */
   .top-bar {
     display: none;
   }
 
-  .brand-title {
-    font-size: 1.05rem;
+  /* --- Header & Brand --- */
+  .main-header {
+    height: 64px;
   }
-  
+
+  :root {
+    --header-height: 64px;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.65rem;
+  }
+
   .brand-logo img {
     height: 34px;
   }
 
+  .brand-logo {
+    gap: 0.5rem;
+  }
+
+  /* --- Mobile Toggle: visible --- */
+  .mobile-toggle {
+    display: flex;
+  }
+
+  /* --- Mobile Navigation Overlay --- */
   .nav-menu {
     position: fixed;
-    top: var(--header-height);
+    top: 64px;
     left: 0;
     width: 100%;
-    max-height: calc(100vh - var(--header-height));
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background-color: #FFFFFF;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.25rem 1.5rem;
+    padding: 0.5rem 1rem 6rem 1rem;
     box-shadow: var(--shadow-xl);
-    clip-path: circle(0% at 100% 0);
-    transition: clip-path 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
+    gap: 0;
   }
 
   .nav-menu.active {
-    clip-path: circle(140% at 100% 0);
+    transform: translateX(0);
   }
 
   .nav-item {
@@ -1506,52 +1780,62 @@ button, input, select, textarea {
     border-bottom: 1px solid var(--neutral-300);
   }
 
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
   .nav-link {
     width: 100%;
-    padding: 0.85rem 0;
+    padding: 1rem 0;
     font-size: 1.05rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 48px;
   }
 
-  .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: var(--radius-sm);
-    background-color: var(--neutral-200);
-    color: var(--primary-navy);
-    border: none;
-    cursor: pointer;
-  }
-
+  /* --- Dropdown in Mobile Nav --- */
   .dropdown-menu {
     position: static;
     width: 100%;
     box-shadow: none;
     border: none;
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: 0.5rem 0 0.75rem 0.75rem;
     grid-template-columns: 1fr;
     display: none;
     opacity: 1;
     visibility: visible;
     transform: none;
-    background-color: #F8FAFC;
+    background-color: var(--neutral-200);
     border-radius: var(--radius-sm);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .nav-item.open .dropdown-menu {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
   }
 
-  /* Hero Section on Mobile */
+  .dropdown-link {
+    padding: 0.6rem 0.75rem;
+    min-height: 44px;
+  }
+
+  .dropdown-category-title {
+    font-size: 0.8rem;
+    padding-bottom: 0.25rem;
+  }
+
+  /* --- Nav Actions --- */
+  .nav-actions .btn {
+    display: none;
+  }
+
+  /* --- Hero Section --- */
   .hero-section {
     padding: 2rem 0 2.5rem 0;
+    min-height: auto;
     text-align: center;
   }
 
@@ -1562,7 +1846,7 @@ button, input, select, textarea {
   }
 
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
     line-height: 1.2;
     margin-bottom: 1rem;
   }
@@ -1574,34 +1858,394 @@ button, input, select, textarea {
   }
 
   .hero-content div[style*="flex"] {
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-stats {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    padding: 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 1.25rem 0;
     text-align: center;
   }
 
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.725rem;
+  }
+
+  /* --- Page Hero (Sub-pages) --- */
+  .page-hero {
+    padding: 1.5rem 0 1.75rem 0;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-description {
+    font-size: 0.95rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* --- Section Resets --- */
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+  }
+
+  /* --- Services Grid --- */
   .services-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
-  .section {
-    padding: 2.5rem 0;
+  .service-card {
+    padding: 1.5rem;
   }
 
-  .section-title {
-    font-size: 1.65rem;
+  .service-title {
+    font-size: 1.2rem;
   }
 
+  .service-desc {
+    font-size: 0.9rem;
+  }
+
+  /* --- Enterprise / Why Choose Us --- */
+  .enterprise-grid,
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .enterprise-media,
+  .profile-img-wrapper {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .enterprise-img-wrapper,
+  .profile-img-wrapper {
+    border-radius: 16px;
+  }
+
+  .enterprise-img,
+  .profile-img {
+    aspect-ratio: 16 / 10;
+    max-height: 260px;
+    object-position: center 25%;
+  }
+
+  .enterprise-badge {
+    bottom: 0.85rem;
+    left: 0.85rem;
+    padding: 0.65rem 0.95rem;
+    gap: 0.7rem;
+    border-radius: 10px;
+    max-width: calc(100% - 1.7rem);
+  }
+
+  .enterprise-badge-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .enterprise-badge-title {
+    font-size: 0.88rem;
+  }
+
+  .enterprise-badge-sub {
+    font-size: 0.74rem;
+  }
+
+  .enterprise-desc {
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .enterprise-features {
+    gap: 0.9rem;
+  }
+
+  .enterprise-feature-item {
+    background-color: #FFFFFF;
+    border: 1px solid var(--neutral-400);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1rem;
+    box-shadow: var(--shadow-sm);
+    gap: 0.9rem;
+  }
+
+  .enterprise-feature-item:hover {
+    transform: none;
+  }
+
+  .enterprise-feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* --- Detail Grid (Service Sub-pages with Sidebar) --- */
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detail-block {
+    padding: 1.5rem;
+  }
+
+  .detail-block h3 {
+    font-size: 1.2rem;
+  }
+
+  .sidebar-card {
+    position: static;
+    padding: 1.5rem;
+  }
+
+  /* --- Booking / Contact Grid --- */
+  .booking-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .booking-card {
+    padding: 1.25rem !important;
+    border-radius: 16px;
+  }
+
+  /* Stack all inline form grids to single column */
+  form div[style*="grid-template-columns"],
+  .booking-form div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Prevent iOS Safari auto-zoom on input focus */
+  .form-input,
+  select.form-input,
+  textarea.form-input,
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .form-label {
+    font-size: 0.85rem !important;
+  }
+
+  /* --- Slot Picker (Contact Page) --- */
+  .slot-picker-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+
+  .slot-chip {
+    height: 48px;
+    min-height: 48px;
+    padding: 0.3rem 0.25rem;
+  }
+
+  .slot-chip .slot-title {
+    font-size: 0.75rem;
+  }
+
+  .slot-chip .slot-time {
+    font-size: 0.6rem;
+  }
+
+  /* --- Calendar & Compliance Page --- */
+  .calendar-filters {
+    gap: 0.5rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .calendar-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cal-filter-btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.825rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 44px;
+  }
+
+  .calendar-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cal-card {
+    padding: 1.15rem;
+    gap: 1rem;
+  }
+
+  .cal-date-badge {
+    min-width: 56px;
+    padding: 0.5rem;
+  }
+
+  .cal-date-badge .day {
+    font-size: 1.35rem;
+  }
+
+  /* --- Document Checklist --- */
+  .checklist-selector {
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .checklist-selector::-webkit-scrollbar {
+    display: none;
+  }
+
+  .checklist-chip {
+    padding: 0.45rem 1rem;
+    font-size: 0.825rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .doc-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .doc-item {
+    padding: 0.85rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Document Wizard Card container on mobile */
+  .section-bg-light .container > div[style*="padding"] {
+    padding: 1.25rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* --- FAQ Accordion --- */
+  .faq-search-box {
+    max-width: 100%;
+  }
+
+  .faq-search-input {
+    font-size: 16px;
+  }
+
+  .faq-question {
+    padding: 1rem 1.15rem;
+    font-size: 0.95rem;
+    min-height: 48px;
+    gap: 0.75rem;
+  }
+
+  .faq-question span {
+    flex: 1;
+    text-align: left;
+  }
+
+  .faq-answer {
+    padding: 0 1.15rem;
+    font-size: 0.9rem;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1.15rem 1.15rem 1.15rem;
+  }
+
+  /* --- Testimonials --- */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  /* --- Footer --- */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
+  .site-footer {
+    padding: 3rem 0 1.5rem 0;
+  }
+
+  .site-footer h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    display: inline-block;
+    padding: 0.25rem 0;
+    min-height: 44px;
+    line-height: 2.5;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* --- WhatsApp Float --- */
   .whatsapp-float {
     bottom: 1rem;
     right: 1rem;
@@ -1616,6 +2260,7 @@ button, input, select, textarea {
     display: none;
   }
 
+  /* --- Toast Notifications --- */
   .toast-container {
     bottom: 1rem;
     right: 1rem;
@@ -1624,40 +2269,243 @@ button, input, select, textarea {
 
   .toast {
     width: 100%;
-  }
-}
-
-/* Small Smartphone Screen (max-width: 600px) */
-@media (max-width: 600px) {
-  .container {
-    padding: 0 1rem;
+    font-size: 0.825rem;
+    padding: 0.85rem 1rem;
   }
 
-  .hero-title {
-    font-size: 1.85rem;
+  /* --- Flatpickr on Mobile --- */
+  .flatpickr-calendar {
+    width: 100% !important;
+    max-width: 300px !important;
   }
 
-  /* Stack Form Grids Vertically on Phones for Easy Tapping */
-  form div[style*="grid-template-columns"],
-  .booking-form div[style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
+  .flatpickr-rContainer, .flatpickr-days, .dayContainer {
+    width: 100% !important;
+    min-width: auto !important;
+    max-width: 300px !important;
   }
 
-  .booking-card {
-    padding: 1.25rem 1.15rem !important;
-  }
-
-  .form-input, select.form-input, textarea.form-input {
-    font-size: 16px !important; /* Prevents auto-zoom on mobile Safari */
-  }
-
+  /* --- Buttons --- */
   .btn {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
   }
 
-  .nav-actions .btn {
-    display: none; /* Hide top header button on tiny screens to avoid overflow */
+  .btn-sm {
+    min-height: 44px;
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Disable hover transforms on touch devices (performance + UX) */
+  .service-card:hover {
+    transform: none;
+  }
+
+  .cal-card:hover {
+    transform: none;
+  }
+}
+
+/* ================================================================
+   SMALL SMARTPHONES (max-width: 480px)
+   ================================================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  .hero-section {
+    padding: 1.5rem 0 2rem 0;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .hero-pill {
+    font-size: 0.72rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+  }
+
+  /* Image adjustments for very small screens */
+  .enterprise-img,
+  .profile-img {
+    aspect-ratio: 4 / 3;
+    max-height: 200px;
+    object-position: center 20%;
+  }
+
+  .enterprise-badge {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .enterprise-badge-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  .enterprise-badge-title {
+    font-size: 0.78rem;
+  }
+
+  .enterprise-badge-sub {
+    font-size: 0.68rem;
+  }
+
+  /* Service cards compact on small phones */
+  .service-card {
+    padding: 1.25rem;
+  }
+
+  .service-icon-box {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.1rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-tags {
+    margin-bottom: 1rem;
+  }
+
+  .service-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  /* Booking card ultra-compact */
+  .booking-card {
+    padding: 1rem !important;
+  }
+
+  .slot-picker-grid {
+    gap: 0.35rem;
+  }
+
+  .slot-chip {
+    height: 44px;
+    min-height: 44px;
+  }
+
+  .slot-chip .slot-title {
+    font-size: 0.7rem;
+  }
+
+  .slot-chip .slot-time {
+    font-size: 0.55rem;
+  }
+
+  /* Calendar cards compact */
+  .cal-card {
+    padding: 1rem;
+    gap: 0.85rem;
+  }
+
+  .cal-date-badge {
+    min-width: 50px;
+    padding: 0.4rem;
+  }
+
+  .cal-date-badge .day {
+    font-size: 1.2rem;
+  }
+
+  .cal-date-badge .month {
+    font-size: 0.65rem;
+  }
+
+  /* Success card mobile */
+  .form-success-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .success-icon-wrap {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem auto;
+  }
+}
+
+/* ================================================================
+   SAFE AREA INSETS (NOTCHED PHONES - iPhone X+, Android punch-holes)
+   ================================================================ */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .whatsapp-float {
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .site-footer {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 768px) {
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .nav-menu {
+      padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* ================================================================
+   REDUCED MOTION PREFERENCE (Accessibility)
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .whatsapp-btn::before {
+    animation: none;
+  }
+
+  .nav-menu {
+    transition: none;
   }
 }
 

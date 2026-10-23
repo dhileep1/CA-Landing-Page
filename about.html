@@ -100,7 +100,11 @@
 
       <div class="nav-actions">
         <a href="contact.html" class="btn btn-primary btn-sm">Book Consultation</a>
-        <button class="mobile-toggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+        <button class="mobile-toggle" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -121,7 +125,7 @@
   <!-- ABOUT DETAILED SECTION -->
   <section class="section">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:4rem; align-items:center;">
+      <div class="profile-grid">
         <div>
           <span class="section-tag">Our Profile</span>
           <h2 class="section-title">Institutional Quality, Personal CA Focus</h2>
@@ -132,7 +136,7 @@
             As an ICAI registered firm, we maintain the highest standards of professional objectivity, technical compliance, and client confidentiality across all engagements.
           </p>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+          <div class="profile-cards-grid">
             <div style="background-color:var(--neutral-200); padding:1.25rem; border-radius:12px; border-left:4px solid var(--accent-green);">
               <h4 style="color:var(--primary-navy-dark); font-size:1.1rem; margin-bottom:0.3rem;">Our Mission</h4>
               <p style="font-size:0.875rem; color:var(--neutral-600);">To simplify complex tax regulations and empower our clients with proactive financial strategies.</p>
@@ -146,7 +150,12 @@
         </div>
 
         <div>
-          <img src="assets/team.png" alt="CA Partner Advisory" style="border-radius:16px; box-shadow:var(--shadow-xl);">
+          <div class="profile-img-wrapper">
+            <picture>
+              <source srcset="assets/team.webp" type="image/webp">
+              <img src="assets/team.png" alt="CA Partner Advisory" class="profile-img" width="600" height="600" loading="lazy" decoding="async">
+            </picture>
+          </div>
         </div>
       </div>
     </div>

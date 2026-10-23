@@ -28,9 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Mobile Menu: toggle open/close with body scroll lock
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      const isOpen = navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    // Close mobile menu when a non-dropdown nav link is clicked
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const parentItem = link.closest('.nav-item');
+        // If it's not a dropdown trigger, close the menu
+        if (!parentItem?.classList.contains('has-dropdown')) {
+          navMenu.classList.remove('active');
+          mobileToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
     });
   }
 
@@ -144,6 +160,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Auto-expand the first active FAQ item on page load
+  faqItems.forEach(item => {
+    if (item.classList.contains('active')) {
+      const answer = item.querySelector('.faq-answer');
+      if (answer) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+  });
 
   // Toast Notification System
   function showToast(message, type = 'success') {
